@@ -1,4 +1,5 @@
 package com.driver;
+
 public class Order {
 
     private String id;
@@ -6,25 +7,24 @@ public class Order {
 
     public Order(String id, String deliveryTime) {
 
+        this.id = id;
+        this.deliveryTime = Integer.parseInt(deliveryTime.substring(0,2))*60 + Integer.parseInt(deliveryTime.substring(3,5));
+
         // The deliveryTime has to converted from string to int and then stored in the attribute
         //deliveryTime  = HH*60 + MM
-        this.id = id;
-        String[] time = deliveryTime.split(":");
-        int deliTime = 0;
-
-        int HH = Integer.parseInt(time[0]);
-        int MM = Integer.parseInt(time[1]);
-
-        deliTime = HH*60 + MM;
-        this.deliveryTime = deliTime;
     }
 
     public String getId() {
-
         return id;
     }
 
-    public int getDeliveryTime() {
-        return deliveryTime;
+    public void setId(String id) {
+        this.id = id;
     }
+
+    public void setDeliveryTime(int deliveryTime) {
+        this.deliveryTime = deliveryTime;
+    }
+
+    public int getDeliveryTime() {return deliveryTime;}
 }
